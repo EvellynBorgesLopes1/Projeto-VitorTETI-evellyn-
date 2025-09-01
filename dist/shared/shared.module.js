@@ -6,19 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.SharedModule = void 0;
+const prisma_database_1 = require("./databases/prisma.database");
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const scenario_module_1 = require("./modules/scenario/scenario.module");
-let AppModule = class AppModule {
+const common_2 = require("@nestjs/common");
+let SharedModule = class SharedModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+exports.SharedModule = SharedModule;
+exports.SharedModule = SharedModule = __decorate([
+    (0, common_1.Global)(),
     (0, common_1.Module)({
-        imports: [scenario_module_1.ScenarioModule],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        imports: [],
+        providers: [prisma_database_1.PrismaService, common_2.Logger],
+        exports: [prisma_database_1.PrismaService],
     })
-], AppModule);
-//# sourceMappingURL=app.module.js.map
+], SharedModule);
+//# sourceMappingURL=shared.module.js.map
