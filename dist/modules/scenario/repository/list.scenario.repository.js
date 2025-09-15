@@ -16,7 +16,7 @@ let ListScenarioRepository = class ListScenarioRepository {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async list() {
+    async listScenario() {
         const scenarios = await this.prisma.scenario.findMany();
         return scenarios;
     }
